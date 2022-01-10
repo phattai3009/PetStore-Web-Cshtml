@@ -1,0 +1,104 @@
+﻿@model PagedList.IPagedList<Model.EF.Giong>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Danh Mục Giống";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Header{
+    Danh mục Giống
+}
+@section jsFooter{
+    <script src="/Assets/Admin/js/productCategoryController.js"></script>
+}
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <span class="m-0 font-weight-bold text-primary">
+            Danh sách Giống
+            <span style="float: right">
+
+                <a href="/admin/ProductCategory2/Create" class="btn btn-primary btn-icon-split">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span class="text">Thêm mới</span>
+                </a>
+
+            </span>
+        </span>
+
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+
+            @using (Html.BeginForm("Index", "ProductCategory2", FormMethod.Get))
+            {
+                <div style="padding: 3px; margin-bottom: 20px; width: 24.5rem">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Tên Giống" name="searchString" value="@ViewBag.SearchString">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>}
+
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã Loại</th>
+                        <th>Mã Giống</th>
+                        <th>Tên Giống</th>
+                        <th>Mô Tả</th>
+                        <th style="text-align: center">Controls</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.MaLoai</td>
+                            <td>@item.MaGiong</td>
+                            <td>@item.TenGiong</td>
+                            <td>@item.MoTa</td>
+                            <td align="center">
+                                <a href="@Url.Action("Edit", "ProductCategory2", new { @maGiong = item.MaGiong })" class="btn btn-primary btn-circle btn-sm" title="Sửa">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Delete", "ProductCategory2", new { @maGiong = item.MaGiong })" class="btn btn-danger btn-circle btn-sm" title="Xóa" data-toggle="modal" data-target="#deleteEntity-@item.MaGiong">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+
+                                <div class="modal fade" id="deleteEntity-@item.MaGiong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Xóa Danh Mục Sản Phẩm</h5>
+                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">Xóa danh mục sản phẩm này khỏi CSDL?</div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+                                                <a class="btn btn-primary" href="@Url.Action("Delete", "ProductCategory2", new { @maGiong = item.MaGiong })">Xóa</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+        </div>
+    </div>
+</div>
+
+
+

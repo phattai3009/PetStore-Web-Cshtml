@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 11.875" name="DBPetStore">
+  <DataContextMoniker Name="/DBPetStoreDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1fa22297-6477-49d9-9bc3-53b503487d2d" absoluteBounds="9, 1.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DBPetStoreDataContext/ChiTietDonHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="559c2a25-b2ea-4a9d-925a-d65a5d18327a" absoluteBounds="9.015, 2.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6b16b387-ceac-4e4e-a09f-d87e01f451d6" absoluteBounds="6.25, 5.25, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/DBPetStoreDataContext/DonHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="24495875-6b86-4604-9664-d1aad03c90ca" absoluteBounds="6.265, 5.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="51271c8c-faf9-419b-bad4-a13f3f739734" absoluteBounds="0.75, 8.75, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/DBPetStoreDataContext/Feedback" />
+      <nestedChildShapes>
+        <elementListCompartment Id="716947fe-dfed-47e4-9d4e-594ef8b4e1d0" absoluteBounds="0.765, 9.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="26c7e031-f5b7-495e-b60a-49c4cc42cec0" absoluteBounds="3.5, 1.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DBPetStoreDataContext/Giong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5eee187e-6f3d-465c-9dfc-6a103c025799" absoluteBounds="3.515, 2.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e4379fb3-2dfd-4a4c-bae0-c9dbca260ba7" absoluteBounds="3.5, 5.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DBPetStoreDataContext/KhachHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6362fe30-6257-4840-804d-dd1463e66b2b" absoluteBounds="3.515, 5.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="30a848f1-0215-4046-9552-ce6691ebf5ea" absoluteBounds="0.75, 1.875, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DBPetStoreDataContext/Loai" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0b6adc9a-74dd-46e4-8a56-8dd0060c5068" absoluteBounds="0.765, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1e5fdce6-5b68-48e9-b076-0c560c94b489" absoluteBounds="6.25, 1, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/DBPetStoreDataContext/ThuCung" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e86263e1-8dae-47d9-9437-bacf73864c02" absoluteBounds="6.265, 1.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="97327b21-1792-4b32-9c77-519233d4d9f0" absoluteBounds="3.75, 8.75, 2, 2.9247054036458309">
+      <DataClassMoniker Name="/DBPetStoreDataContext/UserAdmin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17e070db-daee-4bed-8c25-dc34194b0242" absoluteBounds="3.765, 9.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 6.42390055338542); (10 : 6.42390055338542); (10 : 3.20359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBPetStoreDataContext/DonHang/DonHang_ChiTietDonHang" />
+      <nodes>
+        <classShapeMoniker Id="6b16b387-ceac-4e4e-a09f-d87e01f451d6" />
+        <classShapeMoniker Id="1fa22297-6477-49d9-9bc3-53b503487d2d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.42390055338542); (6.25 : 6.42390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBPetStoreDataContext/KhachHang/KhachHang_DonHang" />
+      <nodes>
+        <classShapeMoniker Id="e4379fb3-2dfd-4a4c-bae0-c9dbca260ba7" />
+        <classShapeMoniker Id="6b16b387-ceac-4e4e-a09f-d87e01f451d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.47199625651042); (3.5 : 2.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBPetStoreDataContext/Loai/Loai_Giong" />
+      <nodes>
+        <classShapeMoniker Id="30a848f1-0215-4046-9552-ce6691ebf5ea" />
+        <classShapeMoniker Id="26c7e031-f5b7-495e-b60a-49c4cc42cec0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 2.41429768880208); (9 : 2.41429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBPetStoreDataContext/ThuCung/ThuCung_ChiTietDonHang" />
+      <nodes>
+        <classShapeMoniker Id="1e5fdce6-5b68-48e9-b076-0c560c94b489" />
+        <classShapeMoniker Id="1fa22297-6477-49d9-9bc3-53b503487d2d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.41429768880208); (6.25 : 2.41429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBPetStoreDataContext/Giong/Giong_ThuCung" />
+      <nodes>
+        <classShapeMoniker Id="26c7e031-f5b7-495e-b60a-49c4cc42cec0" />
+        <classShapeMoniker Id="1e5fdce6-5b68-48e9-b076-0c560c94b489" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 3.06899251302083); (1.75 : 3.595400390625); (6.25 : 3.595400390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBPetStoreDataContext/Loai/Loai_ThuCung" />
+      <nodes>
+        <classShapeMoniker Id="30a848f1-0215-4046-9552-ce6691ebf5ea" />
+        <classShapeMoniker Id="1e5fdce6-5b68-48e9-b076-0c560c94b489" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

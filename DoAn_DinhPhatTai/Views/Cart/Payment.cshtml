@@ -1,0 +1,89 @@
+﻿@model List<DoAn_DinhPhatTai.Models.CartItem>
+@using DoAn_DinhPhatTai.Common;
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_UserLayout2.cshtml";
+}
+<style>
+    #divNavigation {
+        display: none;
+    }
+</style>
+<div class="span999">
+    <div>
+        @if (Model.Count > 0)
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td><b>Mã Thú Cưng</b></td>
+                        <td><b>Tên Tên Thú</b></td>
+                        <td><b>Hình Ảnh</b></td>
+                        <td><b>Số lượng</b></td>
+                        <td><b>Đơn giá</b></td>
+                        <td><b>Thành tiền</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ThuCung.MaTC</td>
+                            <td>@item.ThuCung.TenTC</td>
+                            <td><a href="@Url.Action("ChiTietThuCung", "TC", new { @maTC = item.ThuCung.MaTC })"><img src="@Url.Content(item.ThuCung.AnhBia)" style="width:150px;height:90px;" /></a></td>
+                            <td><input type="text" class="txtQuantity" data-id="@item.ThuCung.MaTC" value="@item.Quantity" /></td>
+                            <td>@item.ThuCung.GiaBan.ToString("N0")</td>
+                            <td>@((item.ThuCung.GiaBan * item.Quantity).ToString("N0"))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+    <br />
+    <div class="section group" style="margin-left:20px;">
+
+        @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+        {
+            <div class="form-group row">
+                <label style="color:red;" class="col-sm-12 col-form-label">Bạn có thể liên hệ Admin để thanh toán trực tiếp.<a href="https://www.instagram.com/zeedijk_dinh/" style="color:blue">Tại đây</a></label>
+            </div>
+            <label style="color:red;">Hoặc</label>
+            <div class="form-group row">
+                <label style="color:red;" class="col-sm-12 col-form-label">Vui lòng nhập thông tin để hoàn tất thanh toán.</label>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Người nhận</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="shipName">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Địa chỉ</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="address">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Số điện thoại</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="mobile">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" name="email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <button type="submit" class="btn btn-success">Xác nhận</button>
+            </div>
+        }
+    </div>
+
+</div>
+
+

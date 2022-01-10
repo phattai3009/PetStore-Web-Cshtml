@@ -1,0 +1,81 @@
+﻿@model List<DoAn_DinhPhatTai.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout2.cshtml";
+}
+
+<style>
+    #divNavigation {
+        display: none;
+    }
+</style>
+
+@if (Model.Count > 0)
+{
+<div class="span999">
+    <div class="row">
+        <div class="col">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active"><a href="#"><i class="fas fa-angle-right" aria-hidden="true"></i>Giỏ Hàng</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td><b>Tên Thú Cưng</b></td>
+                <td><b>Hình Ảnh</b></td>
+                <td><b>Số lượng</b></td>
+                <td><b>Đơn giá</b></td>
+                <td><b>Thành tiền</b></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ThuCung.TenTC</td>
+                    <td><a href="@Url.Action("ChiTietThuCung", "TC", new { @maTC = item.ThuCung.MaTC })"><img src="@Url.Content(item.ThuCung.AnhBia)" style="width:150px;height:90px;" /></a></td>
+                    <td><input type="number" class="txtQuantity" data-id="@item.ThuCung.MaTC" value="@item.Quantity" /></td>
+                    <td>@item.ThuCung.GiaBan.ToString("N0")</td>
+                    <td>@((item.ThuCung.GiaBan * item.Quantity).ToString("N0"))</td>
+                    <td><a href="#" data-id="@item.ThuCung.MaTC" class="btn-delete"><i class="fas fa-trash-alt"></i></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button id="btnContinue" class="btn btn-info">Tiếp tục mua hàng</button>
+    <button id="btnUpdate" class="btn btn-warning">Cập nhật giỏ hàng</button>
+    <button id="btnDeleteAll" class="btn btn-danger">Xoá giỏ hàng</button>
+    <button id="btnPayment" class="btn btn-success">Thanh toán</button>
+</div>
+
+}
+else
+{
+<div class="span999">
+    <div class="row">
+        <div class="col">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active"><a href="#"><i class="fas fa-angle-right" aria-hidden="true"></i>Giỏ Hàng</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="alert alert-warning">Chưa có sản phẩm nào trong giỏ hàng.</div>
+</div>
+}

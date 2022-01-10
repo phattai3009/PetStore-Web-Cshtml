@@ -1,0 +1,76 @@
+﻿@model Model.EF.UserAdmin
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Header{
+    Admin
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Cập nhật</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Edit", "UserAdmin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label>Mã Admin</label>
+                @Html.TextBoxFor(model => model.ID, new { @class = "form-control", @ReadOnly = "ReadOnly" })
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label>Tài khoản</label>
+                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @ReadOnly = "ReadOnly" })
+                </div>
+                <div class="col">
+                    <label>Mật khẩu</label>
+                    <input type="password" id="Password" name="Password" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+                <div class="col">
+                    <label>Họ tên</label>
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <label>Số điện thoại</label>
+                            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Phone)
+                        </div>
+                        <div class="col">
+                            <label>Email</label>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Địa chỉ liên lạc</label>
+                @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Address)
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-switch">
+                    @Html.CheckBoxFor(model => model.Status, new { @class = "custom-control-input", @id = "Status" })
+                    <label class="custom-control-label" for="Status">Kích hoạt</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <center>
+                    <input type="submit" value="Hoàn thành" class="btn btn-primary" />
+                </center>
+            </div>
+        }
+    </div>
+</div>
+
+

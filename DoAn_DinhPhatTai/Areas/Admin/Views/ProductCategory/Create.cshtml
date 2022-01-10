@@ -1,0 +1,34 @@
+﻿@model Model.EF.Loai
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Header{
+    Danh mục Loài
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Thêm mới</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Create", "ProductCategory", FormMethod.Post, new { @class = "user" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                <label>Tên Loại</label>
+                @Html.TextBoxFor(model => model.TenLoai, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TenLoai)
+            </div>
+
+            <div class="form-group">
+                <center>
+                    <input type="submit" value="Hoàn thành" class="btn btn-primary" />
+                </center>
+            </div>
+        }
+    </div>
+</div>
+

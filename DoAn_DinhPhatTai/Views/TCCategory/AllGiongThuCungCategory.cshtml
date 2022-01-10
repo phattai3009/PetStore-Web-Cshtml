@@ -1,0 +1,24 @@
+﻿@model List<Model.EF.Giong>
+@using DoAn_DinhPhatTai.Models
+@{
+    ViewBag.Title = "AllGiongThuCungCategory";
+    Layout = "~/Views/Shared/_UserLayout2.cshtml";
+}
+<style>
+    #divNavigation {
+        display: none;
+    }
+</style>
+@Html.Action("NavigationLoai", "TCCategory")
+<div class="sidebar_section">
+    <div class="sidebar_title">
+        <h5>Thú Cưng Theo Giống</h5>
+    </div>
+    <ul class="sidebar_categories">
+        @foreach (var item in Model)
+        {
+            <li><a href="@Url.Action("ShowThuCungTheoGiong","TCCategory", new {@MaGiong=item.MaGiong })"><span style="margin-right:10px;"></span><b>@item.TenGiong</b></a></li>
+        }
+    </ul>
+</div>
+

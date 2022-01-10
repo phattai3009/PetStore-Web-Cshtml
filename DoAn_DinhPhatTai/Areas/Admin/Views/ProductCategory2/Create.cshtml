@@ -1,0 +1,45 @@
+﻿@model Model.EF.Giong
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Header{
+    Danh mục Giống
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Thêm mới</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Create", "ProductCategory2", FormMethod.Post, new { @class = "user" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                <label>Mã Loại</label>
+                @Html.TextBoxFor(model => model.MaLoai, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaLoai)
+            </div>
+            <div class="form-group">
+                <label>Tên Giống</label>
+                @Html.TextBoxFor(model => model.TenGiong, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TenGiong)
+            </div>
+            <div class="form-group">
+                <label>Mô Tả</label>
+                @Html.TextAreaFor(model => model.MoTa, new { @class = "form-control", @id = "txtContent" })
+                @Html.ValidationMessageFor(model => model.MoTa)
+            </div>
+
+            <div class="form-group">
+                <center>
+                    <input type="submit" value="Hoàn thành" class="btn btn-primary" />
+                </center>
+            </div>
+        }
+    </div>
+</div>
+
+
+

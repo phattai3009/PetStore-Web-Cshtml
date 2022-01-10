@@ -1,0 +1,63 @@
+﻿@model DoAn_DinhPhatTai.Models.LoginModel
+
+@{
+    ViewBag.Title = "Đăng Nhập";
+    //Layout = "~/Views/Layout/_UserLayout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Login Admin</title>
+    <link href="~/Assets/User/css/DangNhap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+</head>
+
+<body class="anh">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="login">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger", style = "color:red" })
+            <h2 class="active">Đăng Nhập</h2>
+            <h2 class="nonactive"><a href="/User/DangKy">Đăng Ký</a></h2>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TaiKhoan, htmlAttributes: new
+                {
+                    @class = "control-label col-md-2",
+                   style = "margin-right:2%;"
+                })
+                <div class="col-md-push-6">
+                    @Html.TextBoxFor(model => model.TaiKhoan, htmlAttributes: new { @class = "text" })
+                    @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+        
+            <div class="form-group">
+                @Html.LabelFor(model => model.MatKhau, htmlAttributes: new { @class = "control-label col-md-2", style = "margin-right:2%;" })
+                <div class="col-md-push-6">
+                    @Html.PasswordFor(model => model.MatKhau, htmlAttributes: new { @class = "text" })
+                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(model => model.Remember, new { htmlAttributes = new { @class = "custom-checkbox", style = "margin-left:1%;" } })
+                @Html.ValidationMessageFor(model => model.Remember, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.Remember, htmlAttributes: new { @class = "control-label col-md-2", style = "margin-right:2%;margin-top:-1%;" })
+                <br />
+            </div>
+            <br />
+            <div class="form-group">
+                @*<a style="color:forestgreen;margin-left:3%;" href="/User/Register"><i>Đăng kí tài khoản</i></a>*@
+                <input style="margin-top:2%;" type="submit" value="Đăng nhập" class="registerbtn" />
+                <br />
+                <a href="#" style="color:white">Quên mật khẩu <i class="fas fa-chevron-circle-right" style="color:white"></i></a>
+                <br />
+                <a href="~/Home/Index" style="color:white">Quay Lại Trang Chủ <i class="fas fa-chevron-circle-right" style="color:white"></i></a>
+            </div>
+        </div>
+    }
+</body>
+</html>

@@ -1,0 +1,381 @@
+﻿@using DoAn_DinhPhatTai.Common;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="~/Assets/User/css/">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="~/Assets/User/css/bootstrap.css" />
+    <!--owl slider stylesheet -->
+    @*<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />*@
+    <link href="~/Assets/User/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Assets/User/css/owl.theme.default.css" rel="stylesheet" />
+    <link href="~/Assets/User/css/animate.css" rel="stylesheet" />
+    <!-- font awesome style -->
+    <link href="~/Assets/User/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/Assets/User/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="~/Assets/User/css/responsive.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="~/Assets/User/css/categories_responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/User/css/categories_styles.css">
+    @*<link rel="stylesheet" type="text/css" href="~/Assets/User/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Assets/User/css/themify-icons.css">
+        <link rel="stylesheet" type="text/css" href="~/Assets/User/css/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="~/Assets/User/css/single_styles.css">
+        <link rel="stylesheet" type="text/css" href="~/Assets/User/css/single_responsive.css">*@
+    <style>
+        #Bam_len_top {
+            display: none;
+            position: fixed;
+            bottom: 50px;
+            right: 10px;
+            z-index: 99;
+            font-size: 15px;
+            border: none;
+            outline: none;
+            background-color: brown;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    @*<div class="hero_area">*@
+    @*<div class="hero_social">
+            <a href="">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+            <a href="">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>*@
+    <div class="header">
+        <div class="top_nav">
+            <div class=" dangnhap">
+                <div class="row ">
+                    <div class="col-md-6">
+                        <div class="top_nav_left">Giao hàng miễn phí cho tất cả đơn hàng trên $50</div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <div class="top_nav_right">
+                            <ul class="top_nav_menu">
+                                @{
+                                    var session = (UserLogin)Session[DoAn_DinhPhatTai.Common.CommonConstant.USER_SESSION];
+                                }
+                                @if (session == null)
+                                {
+                                    @*<a href="/User/Login"><span class="fas fa-user"></span>Đăng nhập</a>
+                                        <a href="@Url.Action("Register","User")"><span class="fas fa-edit"></span>Đăng kí</a>*@
+                                    <li class="account">
+                                        <a href="#">
+                                            My Account
+                                            <i class="fas fa-angle-down"></i>
+                                        </a>
+                                        <ul class="account_selection">
+                                            <li><a href="/User/DangNhap"><i class="fas fa-sign-in-alt" aria-hidden="true"></i>Đăng Nhập</a></li>
+                                            <li><a href="/User/DangKy"><i class="fas fa-user-plus" aria-hidden="true"></i>Đăng Ký</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                else
+                                {
+                                    @*<a href="#"><span class="fas fa-user"></span> Xin chào: @session.UserName</a>
+                                        <a href="/User/Logout"><span class="fas fa-sign-out-alt"></span>Đăng xuất</a>*@
+                                    <li class="account">
+                                        <a href="#">
+                                            Xin chào: @session.UserName
+                                            <i class="fas fa-angle-down"></i>
+                                        </a>
+                                        <ul class="account_selection">
+                                            <li><a href="/User/DangXuat"><i class="fas fa-sign-out-alt" aria-hidden="true"></i>Đăng Xuất</a></li>
+                                        </ul>
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header section strats -->
+
+        <div class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="/Home/Index">
+                        <a class="logo_container">pet<span>store</span></a>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/Home/Index">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/TC/TatCaThuCung"> Pet </a>
+                            </li>
+                            @*<li class="nav-item">
+                                <a class="nav-link" href=""> Thông Tin </a>
+                            </li>*@
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Contact/Index">Liên Hệ</a>
+                            </li>
+                        </ul>
+                        <div class="user_option-box">
+                            <form action="/TC/TimKiem" method="post">
+                                <input type="text" id="txtKeyword" name="txtKeyword" placeholder="Search..." />
+                                <button type="button" class="btnTimKiem">Go</button>
+                            </form>
+                            <a href="/Cart/Index">
+                                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                @{ Html.RenderAction("HeaderCart", "Home");}
+                            </a>
+
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- end header section -->
+    <!-- shop-->
+    <div class="petstore">
+        <div class="container">
+            <div class="row">
+                <div id="divNavigation" class="col-md-2">
+                    @Html.Action("NavigationLoai", "TCCategory")
+                    @Html.Action("NavigationGiong", "TCCategory")
+                </div>
+                <div class="col-md-10">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end shop -->
+    <!-- Thông tin sinh viên -->
+    <section class="client_section layout_padding12">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Thông tin sinh viên
+                </h2>
+            </div>
+            <div class="carousel-wrap">
+                <div class="owl-carousel client_owl-carousel">
+                    <div class="item">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="~/Assets/User/img/toi.jpg" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <div class="client_info">
+                                    <div class="client_name">
+                                        <h5>
+                                            Đinh Phát Tài
+                                        </h5>
+                                        <h6>
+                                            Sinh Viên Lớp 10DHTH1
+                                        </h6>
+                                    </div>
+                                    <i class="fas fa-quote-left" aria-hidden="true"></i>
+                                </div>
+                                <p>
+                                    Đồ Án Môn Học Công Nghệ Web.
+                                    Năm Học 2019-2023
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="images/c2.jpg" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <div class="client_info">
+                                    <div class="client_name">
+                                        <h5>
+                                            Tên
+                                        </h5>
+                                        <h6>
+                                            Chức vự
+                                        </h6>
+                                    </div>
+                                    <i class="fas fa-quote-left" aria-hidden="true"></i>
+                                </div>
+                                <p>
+                                    Nội Dung
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Thông tin sinh viên -->
+
+    <div class="benefit">
+        <div class="container">
+            <div class="row benefit_row">
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fas fa-truck" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>Giao Hàng Miễn Phí</h6>
+                            <p>Miễn Phí Trong Khu Vực Nội Thành</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="far fa-money-bill-alt" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>Hình Thức Thanh Toán</h6>
+                            <p>Thanh Toán Dễ Dàng Tiện Lợi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="fas fa-undo" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>45 Ngày Bảo Hành</h6>
+                            <p>Khám Chửa Bệnh Cho Thú Cưng Miễn Phí Trong Vòng 45 Day</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 benefit_col">
+                    <div class="benefit_item d-flex flex-row align-items-center">
+                        <div class="benefit_icon"><i class="far fa-clock" aria-hidden="true"></i></div>
+                        <div class="benefit_content">
+                            <h6>Thời Gian Hoạt Động Trong Tuần</h6>
+                            <p>08AM - 09PM in Week</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer section -->
+    <footer class="footer_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 footer-col">
+                    <div class="footer_detail">
+                        <h4>
+                            Thông Tin
+                        </h4>
+                        <p>
+                            Website được thiết kể bởi Đinh Phát Tài
+                        </p>
+                        <div class="footer_social">
+                            <a href="">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 footer-col">
+                    <div class="footer_contact">
+                        <h4>
+                            Thông tin liên hệ
+                        </h4>
+                        <div class="contact_link_box">
+                            <a href="">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span>
+                                    Ấp 3, Long Cang, Cần Đước, Long An
+                                </span>
+                            </a>
+                            <a href="">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                <span>
+                                    Call me: 0359975249
+                                </span>
+                            </a>
+                            <a href="">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <span>
+                                    dinhphattai.12a8.2019@gmail.com
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 footer-col">
+                    <div class="map_container">
+                        <div class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3687.080399238265!2d106.50401006125277!3d10.579849578552112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1svi!2s!4v1637497980778!5m2!1svi!2s" width="555" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-info">
+                <p>
+                    &copy; <span id="displayYear"></span> Website được thiết kế bởi
+                    <a href="https://www.instagram.com/zeedijk_dinh/">Đinh Phát Tài</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <script src="~/Assets/User/js/Scroll_on_Top.js"></script>
+    <button onclick="Dua_len_dau()" id="Bam_len_top" title="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
+    <!-- footer section -->
+    <!-- jQery -->
+    <script src="~/Assets/User/js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <!-- bootstrap js -->
+    <script src="~/Assets/User/js/bootstrap.js"></script>
+    <!-- owl slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <!-- custom js -->
+    <script src="~/Assets/User/js/custom.js"></script>
+    <!-- shop js -->
+    <script src="~/Assets/User/js/shop.js"></script>
+    <!-- jquere sroll to js -->
+    <script src="~/Assets/User/js/bootstrap.min.js"></script>
+    <!-- cart controller to js -->
+    <script src="~/Assets/User/js/cartController.js"></script>
+
+    <!-- Google Map -->
+    <!-- End Google Map -->
+
+</body>
+</html>

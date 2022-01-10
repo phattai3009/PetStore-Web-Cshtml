@@ -1,0 +1,48 @@
+﻿@using DoAn_DinhPhatTai.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Model.EF.ThuCung>
+@{
+    ViewBag.Title = "ShowThuCungTheoLoai";
+    Layout = "~/Views/Shared/_UserLayout2.cshtml";
+}
+
+<div>
+    <!--
+    New Products
+    -->
+    <div class="well well-small">
+        <div class="row-fluid">
+            <ul class="thumbnails" style="margin:0">
+                @foreach (var item in Model)
+                {
+                    <li class="span4" style="margin-left:1%;">
+                        <div class="thumbnail">
+                            <a href="@Url.Action("ChiTietThuCung", "TC", new { @maTC = item.MaTC })" class="overlay"></a>
+                            <a class="zoomTool" href="@Url.Action("ChiTietThuCung", "TC", new { @maTC = item.MaTC })" title="add to cart"><span class="fas fa-search"></span> Xem Chi Tiết</a>
+                            <a href="@Url.Action("ChiTietThuCung", "TC", new { @maTC = item.MaTC })"><img style="width:180px;height:180px;" src="@Url.Content(item.AnhBia)" alt=""></a>
+                            <div style="height:120px;" class="caption cntr">
+                                <p style="text-transform:uppercase">@item.TenTC</p>
+                                <p><strong>@item.GiaBan.ToString("N0") VNĐ</strong></p>
+                                <h4><a class="shopBtn" href="/them-gio-hang?productID=@item.MaTC&quantity=1&strURL=@Request.Url.ToString()" title="add to cart"> Mua Ngay </a></h4>
+                            </div>
+                        </div>
+                    </li>
+                }
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+@*<div style="margin-left:2%; margin-bottom:1%;">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount</div>
+<div class="MenuPage">
+    @Html.PagedListPager(Model, page => Url.Action("ShowThuCungTheoLoai", "TCCategory"))
+</div>*@
+<style>
+    .MenuPage li {
+        display: inline;
+        margin-left: 2%;
+    }
+</style>
+
+

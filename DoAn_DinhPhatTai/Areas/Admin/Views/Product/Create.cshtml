@@ -1,0 +1,105 @@
+﻿@model Model.EF.ThuCung
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section Header{
+    Sản Phẩm
+}
+@section jsFooter{
+    <script>
+        $('#btnImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        })
+
+        var editor = CKEDITOR.replace('txtContent');
+    </script>
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Thêm mới</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                <label>Tên Thú Cưng</label>
+                @Html.TextBoxFor(model => model.TenTC, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TenTC)
+            </div>
+            <div class="form-group">
+                <label>Giới thiệu</label>
+                @Html.TextAreaFor(model => model.GioiThieu, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.GioiThieu)
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Ảnh</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.AnhBia, new { @class = "form-control", @id = "txtImage" })
+                            <div class="input-group-append">
+                                <a href="#" class="btn btn-primary" id="btnImage">Chọn ảnh</a>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.AnhBia)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Giá Bán</label>
+                        @Html.TextBoxFor(model => model.GiaBan, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.GiaBan)
+                    </div>
+                    <div class="col">
+                        <label>Số lượng</label>
+                        @Html.TextBoxFor(model => model.SoLuongTon, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SoLuongTon)
+                    </div>
+                    <div class="col">
+                        <label>Danh mục Loài</label>
+                        @Html.TextBoxFor(model => model.MaLoai, null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MaLoai)
+                    </div>
+                    <div class="col">
+                        <label>Danh mục Giống</label>
+                        @Html.TextBoxFor(model => model.MaGiong, null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MaGiong)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Mô Tả Chi Tiết</label>
+                @Html.TextAreaFor(model => model.MoTaChiTiet, new { @class = "form-control", @id = "txtContent" })
+                @Html.ValidationMessageFor(model => model.MoTaChiTiet)
+            </div>
+
+            <div class="form-group">
+                <div class="custom-control custom-switch">
+                    @Html.CheckBoxFor(model => model.Moi, new { @class = "custom-control-input", @id = "Status" })
+                    <label class="custom-control-label" for="Status">Kích hoạt</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <center>
+                    <input type="submit" value="Hoàn thành" class="btn btn-primary" />
+                </center>
+            </div>
+        }
+    </div>
+</div>
+
+

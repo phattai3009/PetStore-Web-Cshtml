@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<!--
+New Products
+-->
+
+<div class="well homePet">
+    <h3><a class="btn btn-mini pull-right" href="@Url.Action("TatCaThuCung","TC")" title="Xem Thêm"><span class="fas fa-hand-point-right"></span> Xem Thêm <span class="fas fa-hand-point-left"></span></a> Thú Cưng Mới Tại Shop </h3>
+    <hr class="soften" />
+    <div class="row-fluid">
+        <div id="newProductCar" class="">
+            <div class="">
+                <div class="item">
+                    <ul class="thumbnails">
+                        @Html.Action("ThuCungNew", "TC")
+                    </ul>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#newProductCar" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#newProductCar" data-slide="next">&rsaquo;</a>
+        </div>
+    </div>
+</div>
+<!--
+Featured Products
+-->
+<div class="well homePet">
+    <h3><a class="btn btn-mini pull-right" href="@Url.Action("TatCaThuCung","TC")" title="Xem Thêm"><span class="fas fa-hand-point-right"></span> Xem Thêm <span class="fas fa-hand-point-left"></span></a> Thú Cưng </h3>
+    <hr class="soften" />
+    <div class="row-fluid">
+        <ul class="thumbnails">
+            @Html.Action("ThuCungBestSell", "TC")
+        </ul>
+    </div>
+</div>
+
+<!-- section -->
+<section class="feature_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                Các Loại Thú Cưng Được Ưu Chuộng
+            </h2>
+            <p>
+                Ở đây chúng tôi có rất nhiều loại thú cưng.v.v
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-3">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="~/Assets/User/img/cho.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            DOG
+                        </h5>
+                        <p>
+                            Chó
+                        </p>
+                        <a href="~/TCCategory/ShowThuCungTheoLoai?MaLoai=1">
+                            <span>
+                                Read More
+                            </span>
+                            <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="~/Assets/User/img/meo.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            CAT
+                        </h5>
+                        <p>
+                            Mèo
+                        </p>
+                        <a href="~/TCCategory/ShowThuCungTheoLoai?MaLoai=2">
+                            <span>
+                                Read More
+                            </span>
+                            <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="~/Assets/User/img/chim.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            BIRD
+                        </h5>
+                        <p>
+                            Chim
+                        </p>
+                        <a href="~/TCCategory/ShowThuCungTheoLoai?MaLoai=3">
+                            <span>
+                                Read More
+                            </span>
+                            <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="~/Assets/User/img/chuot2.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            HAMSTER
+                        </h5>
+                        <p>
+                            HAMSTER
+                        </p>
+                        <a href="~/TCCategory/ShowThuCungTheoLoai?MaLoai=5">
+                            <span>
+                                Read More
+                            </span>
+                            <i class="fas fa-long-arrow-alt-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-box">
+            <a href="~/TC/TatCaThuCung">
+                Xem tất cả
+            </a>
+        </div>
+    </div>
+</section>
+<!-- end section -->

@@ -1,0 +1,122 @@
+﻿@using DoAn_DinhPhatTai.Models;
+@model Model.EF.ThuCung
+
+@{
+    ViewBag.Title = "ChiTietThuCung";
+    Layout = "~/Views/Shared/_UserLayout2.cshtml";
+}
+<style>
+    #divNavigation {
+        display: none;
+    }
+</style>
+
+<div class="span999">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <!-- Breadcrumbs -->
+
+                <div class="breadcrumbs d-flex flex-row align-items-center">
+                    <ul>
+                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                        <li><a href="@Url.Action("TatCaThuCung","TC")"><i class="fas fa-angle-right" aria-hidden="true"></i>Pet</a></li>
+                        <li class="active"><a href="#"><i class="fas fa-angle-right" aria-hidden="true"></i>Chi Tiết Thú Cưng</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="well well-small">
+            <div class="row">
+                <div class="col-md-6" style="margin:0;">
+                    <div id="myCarousel" class="carousel slide cntr">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <a href="#"> <img src="@Url.Content(Model.AnhBia)" alt="" style="width:100%"></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"> <img src="@Url.Content(Model.AnhBia)" alt="" style="width:100%"></a>
+                            </div>
+                            <div class="item">
+                                <a href="#"> <img src="@Url.Content(Model.AnhBia)" alt="" style="width:100%"></a>
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="product_details">
+                        <div class="product_details_title">
+                            <h2 style="text-transform:uppercase">@Model.TenTC</h2>
+                            <p>@Model.GioiThieu</p>
+                        </div>
+                        <div class="product_price">@string.Format("{0:0,0}", @Model.GiaBan) VNĐ</div>
+                        <ul class="star_rating">
+                            <li><i class="fas fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fas fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fas fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fas fa-star" aria-hidden="true"></i></li>
+                            <li><i class="fas fa-star" aria-hidden="true"></i></li>
+                        </ul>
+                        @*<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+            <span>Quantity:</span>
+            <input type="text" id="txtname" />
+        </div>
+
+        <script type="text/javascript">
+            var s = document.getElementById("txtname").value;
+        function follow() {
+            location.href = "../them-gio-hang?productID=@Model.MaTC&quantity=" + s + "&strURL=@Request.Url.ToString()";
+        }
+        </script>*@
+                        <br />
+                        <div class="shopBtn"><a href="/them-gio-hang?productID=@Model.MaTC&quantity=1&strURL=@Request.Url.ToString()" style="color:black">Thêm Giỏ Hàng</a></div>
+                        <div class="shopBtn"><a href="/TC/TatCaThuCung" style="color:black">Mua Tiếp</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <!-- Tab links -->
+                <div class="tab">
+                    <button class="tablinks active" onclick="openThongTin(event, 'ChiTietThuCung')">Chi Tiết Thú Cưng</button>
+                    <button class="tablinks" onclick="openThongTin(event, 'SanPhamSale')">Sản Phẩm Đang Bán</button>
+                </div>
+
+                <!-- Tab content -->
+                <div id="ChiTietThuCung" class="tabcontent" style="display:block">
+                    @Model.MoTaChiTiet
+                    <br />
+                    @Model.NgayCapNhat
+                </div>
+
+                <div id="SanPhamSale" class="tabcontent">
+                    <div class="row-fluid">
+                        <ul class="thumbnails">
+                            @Html.Action("ThuCungNew1", "TC")
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function openThongTin(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+
