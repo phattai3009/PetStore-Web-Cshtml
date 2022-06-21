@@ -1,3 +1,9 @@
+# Thành Viên
+| MSSV          | Họ tên                   | Nội Dung Thực Hiện                              |
+|---------------|--------------------------|-------------------------------------------------|
+| 2001190243    | Đinh Phát Tài            | Design - Code - SQL - Phân Tích Nghiệp Vụ       |
+
+
 # Website PetStore
 Website cửa hàng thú cưng được viết trên Cshtml - C# - HTML - Css - Pet store website written in cshtml -c# - html - Css
 
