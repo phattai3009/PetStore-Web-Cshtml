@@ -5,7 +5,7 @@
 
 
 # Website PetStore
-Website cửa hàng thú cưng được viết trên Cshtml - C# - HTML - Css - Pet store website written in cshtml -c# - html - Css
+Website cửa hàng thú cưng được viết trên Aspx.NET - Pet store website written in Aspx.NET
 
 - [x] Xây dựng website mua bán trực tuyến với các chức năng như mua bán các loài động vật, tìm hiểu các loại thú cưng được ưa chuộng, giao hàng trực tuyến khi đặt hàng qua mạng
   - Phạm vi ứng dụng của đề tài : Có thể sử dụng trực tuyến online trên mạng, giúp người dùng có thể mua thú cưng theo sở thích của bản thân.
@@ -13,22 +13,19 @@ Website cửa hàng thú cưng được viết trên Cshtml - C# - HTML - Css - 
 
 # Chức năng của Website
 - Giao diện chính:
-  ![giaodienchinh](https://user-images.githubusercontent.com/83421255/174752326-9721a9ce-bf4e-4017-a850-1bd702b71a93.PNG)
-
+![image](https://user-images.githubusercontent.com/83421255/174763355-5b7f6207-3c62-4d7f-a27f-61dea03496ea.png)
 - [x] Chức năng chung:
   - Đăng nhập, đăng ký.
   - Tìm kiếm thú cưng.
   - Xem chi tiết thú cưng.
   - Thanh Toán.
-  - Phản hồi shop.
 - [x] Chức năng của admin
   - Quản lý giống loài.
   - Quản lý thú cưng.
   - Quản lý tài khoản nhân viên.
   - Quản lý tài khoản khách hàng.
-  - Feedback từ khách hàng.
   - Thống kê.
 
 # Demo 
 Click ảnh để xem demo ⇓
-[![Watch the video](https://user-images.githubusercontent.com/83421255/174752326-9721a9ce-bf4e-4017-a850-1bd702b71a93.PNG)](https://firebasestorage.googleapis.com/v0/b/qlvideoimage.appspot.com/o/VideoDemoWebPetStore.mp4?alt=media&token=71e23cd9-c069-4469-b473-b63b66e12356)
+[![Watch the video](https://user-images.githubusercontent.com/83421255/174763355-5b7f6207-3c62-4d7f-a27f-61dea03496ea.png)](https://firebasestorage.googleapis.com/v0/b/qlvideoimage.appspot.com/o/VideoDemoWebHK4.mp4?alt=media&token=f00f5b54-1739-47e5-9c83-ccc318b4c030)
