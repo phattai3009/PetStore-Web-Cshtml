@@ -25,5 +25,4 @@ Website cửa hàng thú cưng được viết trên Cshtml - C# - HTML - Css - 
 
 # Demo 
 Click ảnh để xem demo ⇓
-[![Watch the video](https://user-images.githubusercontent.com/83421255/174752326-9721a9ce-bf4e-4017-a850-1bd702b71a93.PNG)
-(https://firebasestorage.googleapis.com/v0/b/qlvideoimage.appspot.com/o/VideoDemoWebPetStore.mp4?alt=media&token=71e23cd9-c069-4469-b473-b63b66e12356)
+[![Watch the video](https://user-images.githubusercontent.com/83421255/174752326-9721a9ce-bf4e-4017-a850-1bd702b71a93.PNG)](https://firebasestorage.googleapis.com/v0/b/qlvideoimage.appspot.com/o/VideoDemoWebPetStore.mp4?alt=media&token=71e23cd9-c069-4469-b473-b63b66e12356)
